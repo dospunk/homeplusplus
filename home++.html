@@ -68,16 +68,18 @@
 				],
 			"z":  []
 		}
+		
+		//
 		function validate(event){
 			event.preventDefault();
 			var txt = $('#cmd').val();
 			for(var y in places) {
-				if(!places.hasOwnProperty(y)) {
+				if(!places.hasOwnProperty(y)) { //Makes sure to only go through keys in the places object, not in the prototype
 					continue;
 				}
-				if(txt.toLowerCase().substring(0,1) == y) {
+				if(txt.toLowerCase().substring(0,1) == y) { //finds the key that matches the first letter of the input
 					for(var z = 0; z < places[y].length; z++){
-						if(places[y][z][0] == txt) {
+						if(places[y][z][0] == txt) { //finds the name that matches the input
 							window.location.href = places[y][z][1];
 						}
 					}
@@ -87,11 +89,11 @@
 		
 		function init(){
 			for(var x in places) {
-				if(!places.hasOwnProperty(x)) {
+				if(!places.hasOwnProperty(x)) { //Makes sure to only go through keys in the places object, not in the prototype
 					continue;
 				}
 				if(places[x][0] != undefined){
-					for(var ij = 0; ij < places[x].length; ij++){
+					for(var ij = 0; ij < places[x].length; ij++){ //Adds each name to the input's datalist
 						$("#places").append('<option value="' + places[x][ij][0] + '">');
 					}
 				}
