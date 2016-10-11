@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<head>
+	<title>Home++</title>
+	<style>
+		body {
+			background-color: #000000;
+		}
+		center {
+			padding-top: 20%;
+		}
+		p {
+			display: inline;
+			color: #ffffff;
+			
+		}
+		input {
+			background-color: #000000;
+			color: #ffffff;
+			border: none;
+		}
+		input:hover {
+			box-shadow: 0px 0px 5px #fff;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script>
+		//define new places with an array inside the already existing ones with the format ["Name", "URL"]
+		var places = {
+			"a":  [],
+			"b":  [],
+			"c":  [],
+			"d":  [],
+			"e": 	[],
+			"f":  [],
+			"g":  [],
+			"h":  [],
+			"i":  [],
+			"j":  [],
+			"k":  [],
+			"l":  [],
+			"m":  [],
+			"n":  [],
+			"o":  [],
+			"p":  [],
+			"q":  [],
+			"r":  [],
+			"s":  [],
+			"t":  [],
+			"u":  [],
+			"v":  [],
+			"w":  [],
+			"x":  [],
+			"y":  [],
+			"z":  []
+		}
+		
+		//
+		function validate(event){
+			event.preventDefault();
+			var txt = $('#cmd').val();
+			for(var y in places) {
+				if(!places.hasOwnProperty(y)) { //Makes sure to only go through keys in the places object, not in the prototype
+					continue;
+				}
+				if(txt.toLowerCase().substring(0,1) == y) { //finds the key that matches the first letter of the input
+					for(var z = 0; z < places[y].length; z++){
+						if(places[y][z][0] == txt) { //finds the name that matches the input
+							window.location.href = places[y][z][1];
+						}
+					}
+				}
+			}
+		}
+		
+		function init(){
+			for(var x in places) {
+				if(!places.hasOwnProperty(x)) { //Makes sure to only go through keys in the places object, not in the prototype
+					continue;
+				}
+				if(places[x][0] != undefined){
+					for(var ij = 0; ij < places[x].length; ij++){ //Adds each name to the input's datalist
+						$("#places").append('<option value="' + places[x][ij][0] + '">');
+					}
+				}
+			}
+			document.getElementById('main').addEventListener('submit', validate);
+			$('body').on('keydown', function() {
+				var input = $('#cmd');
+				if(!input.is(':focus')) {
+					input.focus();
+				}
+			});
+		}
+		window.onload = init;
+	</script>
+</head>
+<body>
+	<center>
+		<form id="main" value="a">
+			<p><b>></b></p>
+			<input list="places" name="cmd" id="cmd" autocomplete="off">
+				<datalist id="places">
+				</datalist>
+			</input>
+		</form>
+	</center>
+</body>
