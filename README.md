@@ -1,5 +1,6 @@
 # Home++
-This is my homepage!
+This is my homepage!  
+You can play with a demo of it [here](https://dospunk.github.io/home++.html)
 
 If you would like a copy already preloaded with some sites, download [home++.html](https://raw.githubusercontent.com/dospunk/homeplusplus/master/home%2B%2B.html). For a blank version, download [home++b.html](https://raw.githubusercontent.com/dospunk/homeplusplus/master/home%2B%2Bb.html).
 
