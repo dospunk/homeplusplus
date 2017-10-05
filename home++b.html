@@ -62,9 +62,9 @@
 				if(!places.hasOwnProperty(y)) { //Makes sure to only go through keys in the places object, not in the prototype
 					continue;
 				}
-				if(txt.toLowerCase().substring(0,1) == y) { //finds the key that matches the first letter of the input
+				if(txt.toLowerCase().substring(0,1) === y) { //finds the key that matches the first letter of the input
 					for(var z = 0; z < places[y].length; z++){
-						if(places[y][z][0] == txt) { //finds the name that matches the input
+						if(places[y][z][0] === txt) { //finds the name that matches the input
 							window.location.href = places[y][z][1];
 						}
 					}
